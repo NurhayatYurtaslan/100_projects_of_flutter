@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app_ui/app/views/view_detail/detail_view.dart';
 import 'package:plant_app_ui/core/extensions/context_extension.dart';
-import 'package:plant_app_ui/core/widgets/product_widget.dart';
+import 'package:plant_app_ui/core/product/product.dart';
 
 class BodyWidget extends StatelessWidget {
   const BodyWidget({
@@ -19,7 +20,14 @@ class BodyWidget extends StatelessWidget {
               height: 100,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DetailScreen1(),
+                  ),
+                );
+              },
               child: const Hero(
                   tag: "flower1",
                   child: ProductWidget(
@@ -28,7 +36,14 @@ class BodyWidget extends StatelessWidget {
                       price: "45")),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DetailScreen2(),
+                  ),
+                );
+              },
               child: const Hero(
                   tag: "flower2",
                   child: ProductWidget(
