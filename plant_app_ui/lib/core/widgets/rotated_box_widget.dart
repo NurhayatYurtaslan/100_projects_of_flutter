@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app_ui/constants/color_constants.dart';
+import 'package:plant_app_ui/core/constants/color_constants.dart';
 
 class RotatedBoxWidget extends StatelessWidget {
   final String widgetText;
