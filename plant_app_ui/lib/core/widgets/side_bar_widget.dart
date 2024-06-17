@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app_ui/core/constants/color_constants.dart';
+import 'package:plant_app_ui/core/extensions/context_extension.dart';
 import 'package:plant_app_ui/core/widgets/rotated_box_widget.dart';
 
 class SideBar extends StatelessWidget {
@@ -9,81 +10,70 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
+    return Container(
       color: secondaryColor,
       child: Column(
+        crossAxisAlignment:
+            CrossAxisAlignment.start, // Sola hizalamak için eklendi
         children: [
           Padding(
-            padding: const EdgeInsets.only(
-              left: 8,
-            ),
+            padding: const EdgeInsets.only(left: 10, top: 20),
             child: Image.asset(
               "assets/icons/more icon.png",
-              width: MediaQuery.of(context).size.width / 3,
+              width: MediaQuery.of(context).size.width / 6,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           const Padding(
-            padding: EdgeInsets.only(left: 16),
+            padding: EdgeInsets.only(left: 30),
             child: Text(
               "Green",
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.left, // Sola hizalamak için eklendi
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 16),
-            child: Text(
-              "PLANTS",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 20),
+          SizedBox(height: context.constMediumValue * 4),
           const RotatedBoxWidget(
             widgetText: 'Shape Close',
             indexController: false,
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 30),
           const RotatedBoxWidget(
             widgetText: 'Indoor Plants',
             indexController: true,
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          const SizedBox(height: 30),
           const RotatedBoxWidget(
             widgetText: 'Green Plants',
             indexController: true,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16, top: 110),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16, bottom: 30),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    color: primaryColor,
                   ),
-                  color: primaryColor),
-              width: 60,
-              height: 70,
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
-                size: 40,
+                  width: 60,
+                  height: 70,
+                  child: const Icon(
+                    Icons.home,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                ),
               ),
             ),
           ),
         ],
       ),
-    ));
+    );
   }
 }

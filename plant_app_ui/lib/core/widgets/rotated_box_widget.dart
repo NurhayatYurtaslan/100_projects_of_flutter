@@ -13,7 +13,7 @@ class RotatedBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 14),
+      padding: const EdgeInsets.only(left: 10),
       child: RotatedBox(
         quarterTurns: 3,
         child: RichText(
@@ -28,7 +28,8 @@ class RotatedBoxWidget extends StatelessWidget {
           TextSpan(
               text: widgetText,
               style: TextStyle(
-                  color: indexController ? blackColor : primaryColor)),
+                  fontSize: 15,
+                  color: indexController ? Colors.black : primaryColor)),
         ])),
       ),
     );
