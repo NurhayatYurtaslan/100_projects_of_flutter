@@ -1,10 +1,215 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/app/view_model/destination_view_model';
+import 'package:travel_app/core/constants/color_constants.dart';
+import 'package:travel_app/core/widgets/app_bar_widget.dart';
+import 'package:travel_app/core/widgets/hot_destination_items.widget.dart';
+import 'package:travel_app/core/widgets/scrollable_image_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            height: size.height,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+                backgroundColor1,
+                backgroundColor2,
+                backgroundColor2
+              ]),
+            ),
+            child: ListView(
+              children: [
+                myAppBar(),
+                // for scrollable image
+                SizedBox(
+                  height: 220,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: destination.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: index == 0 ? 20 : 0),
+                        child: scrollableImage(
+                            context, destination[index]["image"]!),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: size.height * 0.035),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    right: 20,
+                    left: 20,
+                    bottom: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Hot Destination",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 25,
+                          color: primaryColor.withOpacity(0.7),
+                        ),
+                      ),
+                      const Text(
+                        "More",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          color: Colors.white24,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 220,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: hotDestination.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: index == 0 ? 20 : 0),
+                        child: HotDestinationItemsWidget(
+                            image: hotDestination[index]["image"]!,
+                            name: hotDestination[index]["name"]!,
+                            noOfTourism: hotDestination[index]["noOfPlace"]!,
+                            context: context),
+                      );
+                    },
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 35,
+                    right: 20,
+                    left: 20,
+                    bottom: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Visiters Reviews",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
+                          color: primaryColor.withOpacity(0.7),
+                        ),
+                      ),
+                      const Text(
+                        "22 Review",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: Colors.white24,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/profile.png"),
+                      ),
+                      const SizedBox(width: 20),
+                      SizedBox(
+                        width: size.width - 100,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Arjun Unni",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: primaryColor.withOpacity(0.7),
+                                  ),
+                                ),
+                                const Text(
+                                  "Jan 25",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11,
+                                    color: Colors.white24,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Text(
+                              "A travel app is a mobile application designed to assist users in planning, organizing, and executing their travel activities efficiently. These apps typically offer a range of features including flight and hotel bookings, itinerary planning, navigation assistance, currency conversion, language translation, weather forecasts, and local recommendations for dining and activities.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: Colors.white30,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: size.width,
+              height: 85,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    backgroundColor1,
+                    backgroundColor2,
+                  ],
+                ),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(
+                    Icons.home_rounded,
+                    size: 42,
+                    color: Colors.white38,
+                  ),
+                  Icon(
+                    Icons.place,
+                    size: 42,
+                    color: primaryColor,
+                  ),
+                  Icon(
+                    Icons.person,
+                    size: 42,
+                    color: Colors.white38,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
