@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/app/view_model/destination_view_model';
+import 'package:travel_app/app/view_model/destination_view_model.dart';
 import 'package:travel_app/core/constants/color_constants.dart';
 import 'package:travel_app/core/widgets/app_bar_widget.dart';
 import 'package:travel_app/core/widgets/hot_destination_items.widget.dart';
