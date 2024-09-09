@@ -8,37 +8,38 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: Stack(
-      children: [
-        Row(
-          children: [
-            SideBar(),
-            BodyWidget(),
-          ],
-        ),
-        Positioned(
-          top: 100,
-          left: 29,
-          child: Text(
-            "Plants",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
+        body: Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Stack(
+        children: [
+          Row(
+            children: [
+              SideBar(),
+              BodyWidget(),
+            ],
+          ),
+          Positioned(
+            top: 100,
+            left: 29,
+            child: Text(
+              "Plants",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 35,
+              ),
             ),
           ),
-        ),
-        Positioned(
-          top: 45,
-          right: 10,
-          child: Icon(
-            Icons.search,
-            color: Colors.black,
-            size: 40,
+          Positioned(
+            top: 45,
+            right: 10,
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 40,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ));
   }
 }
-
-

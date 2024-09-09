@@ -11,47 +11,50 @@ class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width * 0.78,
+      width: context.width * 0.7,
       color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DetailScreen1(),
-                  ),
-                );
-              },
-              child: const Hero(
-                  tag: "flower1",
-                  child: ProductWidget(
-                      image: "assets/images/flower1.png",
-                      name: "House Shape Close",
-                      price: "45")),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DetailScreen2(),
-                  ),
-                );
-              },
-              child: const Hero(
-                  tag: "flower2",
-                  child: ProductWidget(
-                      image: "assets/images/flower2.png",
-                      name: "Glass Water",
-                      price: "60")),
-            ),
-          ],
+      child: Padding(
+        padding: const EdgeInsets.only(right: 58.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 100,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetailScreen1(),
+                    ),
+                  );
+                },
+                child: const Hero(
+                    tag: "flower1",
+                    child: ProductWidget(
+                        image: "assets/images/flower1.png",
+                        name: "House Shape Close",
+                        price: "45")),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetailScreen2(),
+                    ),
+                  );
+                },
+                child: const Hero(
+                    tag: "flower2",
+                    child: ProductWidget(
+                        image: "assets/images/flower2.png",
+                        name: "Glass Water",
+                        price: "60")),
+              ),
+            ],
+          ),
         ),
       ),
     );

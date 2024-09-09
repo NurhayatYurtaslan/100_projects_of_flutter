@@ -185,7 +185,7 @@ class ProductDetail extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         color: primaryColor,
         child: const Padding(
-          padding: EdgeInsets.only(top: 800, left: 24),
+          padding: EdgeInsets.only(top: 700, left: 24, right: 20),
           child: Row(
             children: [
               // For Height
@@ -195,7 +195,7 @@ class ProductDetail extends StatelessWidget {
                     "Height",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.white,
                     ),
                   ),
@@ -205,7 +205,7 @@ class ProductDetail extends StatelessWidget {
                   Text(
                     "40cm - 50cm",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 10,
                       color: Colors.white,
                     ),
                   ),
@@ -239,29 +239,32 @@ class ProductDetail extends StatelessWidget {
               ),
 
               SizedBox(
-                width: 20,
+                width: 15,
               ),
-              Column(
-                children: [
-                  Text(
-                    "Temperatre",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white,
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "Temperatre",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "18C - 25C",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                    SizedBox(
+                      height: 5,
                     ),
-                  ),
-                ],
+                    Text(
+                      "18C - 25C",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
